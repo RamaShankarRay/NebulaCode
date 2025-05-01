@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Ensure proper scaling on all devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NebulaCode - Login &amp; Sign Up</title>
+  <link rel="stylesheet" href="entry.css">
+
+  <!-- Firebase: using compat libraries for a simpler integration -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+</head>
+<body>
+  <div class="entry-container">
+    <div class="card">
+      <!-- Interactive content container -->
+      <div id="card-content">
+        <h2>NebulaCode</h2>
+        <p class="tagline">Code • Create • Collaborate</p>
+
+        <!-- Toggle buttons -->
+        <div class="toggle-links">
+          <button id="toggle-login" class="toggle-btn active">Login</button>
+          <button id="toggle-signup" class="toggle-btn">Sign Up</button>
+        </div>
+
+        <!-- Error message area -->
+        <div id="error-message"></div>
+
+        <!-- Login Form -->
+        <form id="login-form" class="form-panel">
+          <input type="email" id="login-email" placeholder="Email" required>
+          <input type="password" id="login-password" placeholder="Password" required>
+          <button type="submit" class="btn">Login</button>
+        </form>
+
+        <!-- Signup Form -->
+        <form id="signup-form" class="form-panel" style="display: none;">
+          <input type="text" id="signup-name" placeholder="Full Name" required>
+          <input type="email" id="signup-email" placeholder="Email" required>
+          <input type="password" id="signup-password" placeholder="Password" required>
+          <div class="photo-upload">
+            <label for="signup-photo">Upload Profile Photo:</label>
+            <input type="file" id="signup-photo" accept="image/*">
+            <div class="photo-preview" id="photo-preview">
+              <!-- Profile photo preview will appear here -->
+            </div>
+          </div>
+          <button type="submit" class="btn">Sign Up</button>
+        </form>
+
+        <!-- OTP Verification Form -->
+        <form id="otp-form" class="form-panel" style="display: none;">
+          <p class="otp-text">Enter the 6-digit OTP sent to your email</p>
+          <input type="text" id="otp-input" placeholder="OTP" maxlength="6" required>
+          <button type="submit" class="btn">Verify OTP</button>
+          <button type="button" id="resend-otp" class="btn" disabled>
+            Resend OTP (<span id="resend-timer">60</span>s)
+          </button>
+        </form>
+      </div>
+      <!-- Loading container (hidden by default) -->
+      <div id="loading-container" style="display: none;">
+        <h2>NebulaCode</h2>
+        <p class="loading-text">
+          Loading<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="entry.js"></script>
+</body>
+</html>
