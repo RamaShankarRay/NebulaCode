@@ -1,0 +1,224 @@
+/* entry.css */
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0d0d0d, #232323);
+  color: #e0e0e0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.entry-container {
+  width: 100%;
+  max-width: 450px;
+  padding: 20px;
+}
+
+/* Card styling */
+.card {
+  background: #1e1e2a;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#card-content h2,
+#loading-container h2 {
+  font-size: 36px;
+  margin-bottom: 8px;
+  color: #0a9396;
+}
+
+.tagline {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #aaa;
+}
+
+/* Toggle buttons */
+.toggle-links {
+  margin-bottom: 20px;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: none;
+  color: #888;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+.toggle-btn.active,
+.toggle-btn:hover {
+  color: #0a9396;
+  font-weight: bold;
+  border-bottom: 2px solid #0a9396;
+}
+
+/* Form Panel Styling */
+.form-panel {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(15px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.form-panel input[type="text"],
+.form-panel input[type="email"],
+.form-panel input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  background: #2c2c3a;
+  color: #e0e0e0;
+}
+
+.form-panel input::placeholder {
+  color: #888;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: #0a9396;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.btn:hover {
+  background: #088f8f;
+  transform: scale(1.02);
+}
+
+.btn:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+/* Button press feedback */
+.btn:active {
+  transform: scale(0.98);
+}
+
+.button-pressed {
+  transform: scale(0.98);
+  opacity: 0.8;
+  transition: transform 0.1s, opacity 0.1s;
+}
+
+.otp-text {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #ccc;
+}
+
+/* Photo Upload */
+.photo-upload {
+  margin: 10px 0;
+  text-align: left;
+}
+
+.photo-upload label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.photo-upload input[type="file"] {
+  display: block;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.photo-preview {
+  width: 100%;
+  height: 150px;
+  border: 2px dashed #444;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  overflow: hidden;
+}
+
+.photo-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Error Message */
+#error-message {
+  color: #ff6b6b;
+  font-size: 14px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* Loading styles */
+#loading-container {
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.loading-text {
+  font-size: 24px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.dot {
+  animation: float 1s infinite;
+  transform: translateY(0);
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
